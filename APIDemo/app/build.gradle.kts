@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.loginpage"
+    namespace = "com.example.apidemo"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.loginpage"
+        applicationId = "com.example.apidemo"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -37,5 +37,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation("com.android.volley:volley:1.2.1")
 }

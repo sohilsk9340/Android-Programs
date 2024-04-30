@@ -10,6 +10,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
+
 public class MainActivity3 extends AppCompatActivity {
 
     EditText text;
@@ -29,5 +37,20 @@ public class MainActivity3 extends AppCompatActivity {
         text = findViewById(R.id.editText3);
         button = findViewById(R.id.btn3);
 
+        String url = "https://meowfacts.herokuapp.com/";
+        JsonObjectRequest js = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                    text.setText(response.toString());
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                text.setText("Error!");
+            }
+        });
+
+        RequestQueue req = Volley.newRequestQueue(this);
+        req.add(js);
     }
 }
