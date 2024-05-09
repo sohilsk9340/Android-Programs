@@ -2,7 +2,6 @@ package com.example.apidemo;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +11,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class Homepage extends AppCompatActivity {
 
-    TextView output;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +22,6 @@ public class Homepage extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        output = findViewById(R.id.output);
-
 
     }
 }

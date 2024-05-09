@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/background"
+    >
+
+    <Button
+        android:id="@+id/buttonFileClaim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="104dp"
+        android:text="File a Claim"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonTrackStatus"
+        android:layout_width="153dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="164dp"
+        android:layout_marginEnd="26dp"
+        android:text="Track  status "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonFileClaim" />
+
+    <Button
+        android:id="@+id/buttonContactAgent"
+        android:layout_width="155dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="26dp"
+        android:text="Contact Agent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTrackStatus" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="120dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="64dp"
+        android:src="@drawable/claim_icom"
+        app:layout_constraintEnd_toStartOf="@+id/buttonFileClaim"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="113dp"
+        android:layout_height="126dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="42dp"
+        android:src="@drawable/track_status"
+        app:layout_constraintEnd_toStartOf="@+id/buttonTrackStatus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="104dp"
+        android:layout_height="102dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="42dp"
+        android:src="@drawable/contact_agent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonContactAgent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

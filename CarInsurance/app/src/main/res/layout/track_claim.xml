@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/background"
+    >
+
+    <!-- Claim Status Overview Section -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Claim Status Overview"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- RecyclerView for displaying list of claims -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewClaims"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Detailed Claim Information Section -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detailed Claim Information"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Claim ID -->
+    <TextView
+        android:id="@+id/textViewClaimID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Claim ID: ....."
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Date Submitted -->
+    <TextView
+        android:id="@+id/textViewDateSubmitted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date Submitted: 00/00/0000"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Description of Incident -->
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Claim Status -->
+    <TextView
+        android:id="@+id/textViewClaimStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Claim Status: Pending"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Claim Handler -->
+    <TextView
+        android:id="@+id/textViewClaimHandler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Claim Handler: Sohil Khan"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Progress Updates -->
+    <TextView
+        android:id="@+id/textViewProgressUpdates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Progress Updates: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Refresh Button -->
+    <Button
+        android:id="@+id/buttonRefresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Refresh"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

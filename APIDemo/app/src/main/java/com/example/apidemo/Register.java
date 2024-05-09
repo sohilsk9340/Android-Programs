@@ -1,11 +1,13 @@
 package com.example.apidemo;
 
-import static com.example.apidemo.R.id.name;
-
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,11 +15,29 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class Register extends AppCompatActivity {
-    TextView name;
-    TextView email;
-    TextView phone;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.apidemo.models.DataModels;
+import com.example.apidemo.network.ApiService;
+import com.example.apidemo.network.RetrofitClient;
+
+import org.json.JSONException;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class Register extends AppCompatActivity implements View.OnClickListener {
+    TextView title;
+    TextView desc;
+    TextView owner;
     Button button;
+    private ProgressDialog progressDialog;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,16 +50,49 @@ public class Register extends AppCompatActivity {
             return insets;
         });
 
-        name = findViewById(R.id.name);
-        email = findViewById(R.id.emial);
-        phone = findViewById(R.id.phone);
+        title = findViewById(R.id.name);
+        desc = findViewById(R.id.emial);
+        owner= findViewById(R.id.owner);
         button = findViewById(R.id.btnr);
 
-        String sname = name.getText().toString();
-        String semail = email.getText().toString();
-        int ipone = phone.getText().length();
+        progressDialog = new ProgressDialog(this);
 
+        button.setOnClickListener(this);
 
+    }
 
+    private void sendData() {
+
+        progressDialog.setMessage("Post Data in Progress......");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
+        final DataModels dataModels = new DataModels(title.getText().toString(),
+                desc.getText().toString(),owner.getText().toString());
+
+        Call<DataModels> call = apiService.postData(dataModels);
+
+        call.enqueue(new Callback<DataModels>() {
+            @Override
+            public void onResponse(Call<DataModels> call, Response<DataModels> response) {
+                progressDialog.dismiss();
+                if (response.isSuccessful()){
+                    Toast.makeText(Register.this, "Sucess", Toast.LENGTH_SHORT).show();
+                }
+                Toast.makeText(Register.this, "Error", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<DataModels> call, Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(Register.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public void onClick(View v) {
+        sendData();
     }
 }
